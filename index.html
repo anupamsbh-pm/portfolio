@@ -1,294 +1,693 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anupam | Portfolio</title>
-    <style>
-        /* CSS Variables for Easy Theming */
-        :root {
-            --bg-color: #0f172a; /* Slate Dark */
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --accent-color: #38bdf8; /* Modern Light Blue */
-            --card-bg: #1e293b;
-        }
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anupam Saurabh | Product Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400;1,700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-        /* Global Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            line-height: 1.6;
-        }
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
+/* ─── NEW ENTERPRISE SLATE THEME ─── */
+:root {
+  --bg:         #0F172A; 
+  --bg2:        #1E293B; 
+  --bg3:        #334155; 
+  --primary:    #3B82F6; 
+  --secondary:  #38BDF8; 
+  --cream:      #F8FAFC; 
+  --muted:      #94A3B8; 
+  --dim:        rgba(248,250,252,0.3);
+  
+  --teal:       #14B8A6;
+  --indigo:     #6366F1;
+  --rose:       #F43F5E;
+  --purple:     #8B5CF6;
+  --emerald:    #10B981;
+  --gold2:      #E8B84B;
+  --sky:        #38BDF8;
+  
+  --b1:         rgba(59,130,246,0.18); 
+  --b2:         rgba(248,250,252,0.08); 
+}
 
-        /* Navigation Bar */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 20px 50px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: rgba(15, 23, 42, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--accent-color);
-        }
-        .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 30px;
-        }
-        .nav-links li a {
-            font-size: 1rem;
-            transition: color 0.3s;
-        }
-        .nav-links li a:hover {
-            color: var(--accent-color);
-        }
+html { scroll-behavior: smooth; }
 
-        /* Sections General */
-        section {
-            padding: 100px 20px;
-            max-width: 1100px;
-            margin: 0 auto;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-        h2 {
-            font-size: 2.5rem;
-            margin-bottom: 40px;
-            color: var(--text-main);
-            border-bottom: 3px solid var(--accent-color);
-            display: inline-block;
-            padding-bottom: 10px;
-        }
+body {
+  background: var(--bg);
+  font-family: 'Syne', sans-serif;
+  color: var(--cream);
+  overflow-x: hidden;
+  cursor: none;
+}
 
-        /* Hero Section */
-        #home {
-            align-items: flex-start;
-        }
-        .hero-subtitle {
-            color: var(--accent-color);
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-            letter-spacing: 2px;
-        }
-        .hero-title {
-            font-size: 4.5rem;
-            font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 20px;
-        }
-        .hero-desc {
-            color: var(--text-muted);
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin-bottom: 40px;
-        }
-        .btn {
-            padding: 15px 30px;
-            background-color: transparent;
-            border: 2px solid var(--accent-color);
-            color: var(--accent-color);
-            border-radius: 5px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-        .btn:hover {
-            background-color: var(--accent-color);
-            color: var(--bg-color);
-        }
+/* ─── CURSOR ─────────────────────────────── */
+#cur  { width:10px; height:10px; background:var(--secondary); border-radius:50%; position:fixed; pointer-events:none; z-index:9999; transform:translate(-50%,-50%); mix-blend-mode:screen; }
+#cur2 { width:32px; height:32px; border:1px solid rgba(56,189,248,0.45); border-radius:50%; position:fixed; pointer-events:none; z-index:9998; transform:translate(-50%,-50%); transition:left .1s,top .1s; }
 
-        /* About Section */
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            color: var(--text-muted);
-        }
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-top: 20px;
-        }
-        .skill-tag {
-            background-color: var(--card-bg);
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            color: var(--text-main);
-        }
+/* ─── NAV ────────────────────────────────── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 18px 60px;
+  display: flex; justify-content: space-between; align-items: center;
+  background: rgba(15,23,42,0.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(59,130,246,0.15);
+}
+.nav-logo { font-family:'Cormorant Garamond',serif; font-size:1.15rem; font-weight:700; color:var(--secondary); letter-spacing:1px; }
+.nav-links { display:flex; gap:32px; }
+.nav-links a { font-size:11px; letter-spacing:2.5px; text-transform:uppercase; color:var(--muted); text-decoration:none; font-weight:600; transition:color .2s; }
+.nav-links a:hover { color:var(--secondary); }
 
-        /* Projects Section */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        .project-card {
-            background-color: var(--card-bg);
-            border-radius: 10px;
-            padding: 30px;
-            transition: transform 0.3s ease;
-        }
-        .project-card:hover {
-            transform: translateY(-10px);
-        }
-        .project-title {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: var(--text-main);
-        }
-        .project-desc {
-            color: var(--text-muted);
-            margin-bottom: 20px;
-        }
-        .project-links a {
-            color: var(--accent-color);
-            margin-right: 15px;
-            font-weight: bold;
-        }
+/* ─── HERO ───────────────────────────────── */
+.hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 140px 60px 80px;
+  position: relative; overflow: hidden;
+}
+.hero-grid {
+  position: absolute; inset: 0; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(59,130,246,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59,130,246,0.05) 1px, transparent 1px);
+  background-size: 80px 80px;
+  -webkit-mask-image: radial-gradient(ellipse at 65% 40%, black 25%, transparent 68%);
+  mask-image: radial-gradient(ellipse at 65% 40%, black 25%, transparent 68%);
+}
+.glow-a {
+  position: absolute; width:680px; height:680px; border-radius:50%; pointer-events:none;
+  background: radial-gradient(ellipse, rgba(59,130,246,0.09), transparent 68%);
+  top:-120px; right:-80px;
+  animation: gPulse 9s ease-in-out infinite;
+}
+.glow-b {
+  position: absolute; width:480px; height:480px; border-radius:50%; pointer-events:none;
+  background: radial-gradient(ellipse, rgba(20,184,166,0.08), transparent 68%);
+  bottom:-60px; left:-40px;
+  animation: gPulse 11s 2s ease-in-out infinite;
+}
+@keyframes gPulse { 0%,100%{opacity:.6;transform:scale(1);} 50%{opacity:1;transform:scale(1.08);} }
 
-        /* Contact Section */
-        #contact {
-            align-items: center;
-            text-align: center;
-            min-height: 60vh;
-        }
-        .contact-desc {
-            color: var(--text-muted);
-            max-width: 600px;
-            margin-bottom: 40px;
-        }
+.hero-tag {
+  display: flex; align-items: center; gap:12px;
+  font-size:11px; letter-spacing:4px; text-transform:uppercase;
+  color:var(--teal); font-weight:600; margin-bottom:22px;
+}
+.hero-tag::before { content:''; display:block; width:30px; height:1px; background:var(--teal); }
 
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 30px;
-            background-color: var(--card-bg);
-            color: var(--text-muted);
-        }
+.hero-h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3.2rem, 7vw, 6.5rem);
+  font-weight: 700; line-height: .95; letter-spacing: -1px;
+  margin-bottom: 24px;
+}
+.hero-h1 em { font-style:italic; color:var(--secondary); }
+.hero-h1 .sub {
+  display: block;
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(.85rem, 1.4vw, 1.05rem);
+  font-weight: 500; letter-spacing: 2px;
+  color: var(--dim); margin-top: 14px;
+}
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero-title { font-size: 3rem; }
-            .about-content { grid-template-columns: 1fr; }
-            .nav-links { display: none; } /* Simplified for mobile */
-        }
-    </style>
+.hero-desc {
+  max-width: 580px; font-size: 1.05rem; line-height: 1.78;
+  color: var(--muted); font-weight: 400; margin-bottom: 48px;
+}
+
+.hero-stats { display:flex; gap:40px; flex-wrap:wrap; margin-bottom: 56px; max-width: 900px; }
+.hstat { border-left: 2px solid var(--primary); padding-left:16px; }
+.hstat-n { font-family:'Cormorant Garamond',serif; font-size:2.6rem; font-weight:700; color:var(--secondary); line-height:1; }
+.hstat-l { font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--muted); margin-top:4px; }
+
+.scroll-cue {
+  display:flex; align-items:center; gap:12px;
+  font-size:10px; letter-spacing:3px; text-transform:uppercase; color:var(--dim);
+}
+.scroll-line { width:44px; height:1px; background:linear-gradient(to right, var(--primary), transparent); animation:sSlide 2s ease-in-out infinite; }
+@keyframes sSlide {
+  0%   { transform:scaleX(0); transform-origin:left; }
+  49%  { transform:scaleX(1); transform-origin:left; }
+  50%  { transform:scaleX(1); transform-origin:right; }
+  100% { transform:scaleX(0); transform-origin:right; }
+}
+
+/* ─── SECTION WRAPPER ───────────────────── */
+.sec-wrap { padding:90px 60px; max-width:1280px; margin:0 auto; }
+.divider   { height:1px; background:linear-gradient(to right,transparent,var(--b1),transparent); margin:0 60px; }
+
+.sec-header { display:flex; align-items:baseline; gap:22px; margin-bottom:56px; }
+.sec-num    { font-family:'Cormorant Garamond',serif; font-size:4rem; font-weight:700; color:rgba(59,130,246,0.13); line-height:1; flex-shrink:0; }
+.sec-kicker { font-size:10px; letter-spacing:4px; text-transform:uppercase; color:var(--teal); margin-bottom:5px; font-weight:600; }
+.sec-title  { font-family:'Cormorant Garamond',serif; font-size:clamp(1.8rem,3.5vw,2.8rem); font-weight:700; line-height:1.1; }
+.sec-title em { font-style:italic; color:var(--secondary); }
+
+/* ─── PRODUCT CARDS ─────────────────────── */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  gap: 2px;
+  background: var(--b2);
+  border: 1px solid var(--b2);
+}
+
+.pcard {
+  background: var(--bg2);
+  padding: 40px;
+  position: relative; overflow: hidden;
+  transition: background .25s;
+}
+.pcard:hover { background: var(--bg3); }
+.pcard::before {
+  content: ''; position:absolute; top:0; left:0; right:0; height:2px;
+  background: var(--ca, var(--primary));
+  transform: scaleX(0); transform-origin: left;
+  transition: transform .35s ease;
+}
+.pcard:hover::before { transform: scaleX(1); }
+
+.pcard-bg-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 5rem; font-weight:700;
+  color: rgba(255,255,255,0.03);
+  position: absolute; top:20px; right:24px; line-height:1; pointer-events:none; user-select:none;
+}
+
+.pcard-icon  { font-size:2rem; margin-bottom:14px; display:block; }
+.pcard-kicker { font-size:10px; letter-spacing:3px; text-transform:uppercase; font-weight:600; margin-bottom:7px; }
+.pcard-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size:1.45rem; font-weight:700; line-height:1.25; margin-bottom:13px;
+}
+.pcard-desc  { font-size:13.5px; line-height:1.78; color:var(--muted); margin-bottom:18px; }
+.pcard-list  { list-style:none; margin-bottom:20px; }
+.pcard-list li {
+  font-size:12.5px; color:var(--muted); line-height:1.6;
+  padding:5px 0; display:flex; gap:10px; align-items:flex-start;
+  border-bottom:1px solid var(--b2);
+}
+.pcard-list li:last-child { border:none; }
+.pcard-list li::before { content:'→'; color:var(--ca,var(--primary)); flex-shrink:0; font-size:11px; margin-top:2px; }
+.pcard-tags  { display:flex; flex-wrap:wrap; gap:6px; }
+.ptag {
+  font-size:10px; padding:3px 9px; border-radius:3px;
+  letter-spacing:1px; text-transform:uppercase; font-weight:600;
+  background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.09); color:var(--dim);
+}
+
+/* ─── FEATURED FULL-WIDTH ───────────────── */
+.pcard.featured {
+  grid-column: 1 / -1;
+  background: linear-gradient(135deg, rgba(59,130,246,0.08), rgba(20,184,166,0.06));
+  border-top: 1px solid rgba(59,130,246,0.25);
+  padding: 56px;
+}
+
+.feat-header { margin-bottom:36px; }
+.feat-header .pcard-title { font-size:1.9rem; }
+
+.uc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px,1fr));
+  gap: 14px;
+  margin-bottom: 28px;
+}
+.uc-card {
+  background: rgba(15,23,42,0.65);
+  border: 1px solid rgba(20,184,166,0.18);
+  border-radius: 10px;
+  padding: 22px;
+  transition: border-color .25s, transform .25s;
+}
+.uc-card:hover { border-color: rgba(20,184,166,0.4); transform: translateY(-3px); }
+.uc-card-icon  { font-size:1.5rem; margin-bottom:10px; display:block; }
+.uc-card-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size:1.1rem; font-weight:700; margin-bottom:9px; color:var(--cream);
+}
+.uc-card-desc  { font-size:12.5px; color:var(--muted); line-height:1.72; margin-bottom:14px; }
+.uc-agents     { display:flex; flex-wrap:wrap; gap:5px; }
+.agent {
+  font-size:10px; font-weight:700; letter-spacing:.8px;
+  padding:3px 9px; border-radius:100px;
+}
+.agent.l1 { background:rgba(20,184,166,0.12);  border:1px solid rgba(20,184,166,0.32);  color:var(--teal);   }
+.agent.l2 { background:rgba(56,189,248,0.1);   border:1px solid rgba(56,189,248,0.28);  color:var(--secondary);  }
+.agent.l3 { background:rgba(139,92,246,0.1);   border:1px solid rgba(139,92,246,0.28); color:var(--purple); }
+
+.arch-note {
+  padding:16px 20px;
+  background: rgba(20,184,166,0.08);
+  border: 1px solid rgba(20,184,166,0.2);
+  border-radius: 8px;
+  font-size:12px; color:var(--muted); line-height:1.72;
+}
+.arch-note strong { color:var(--teal); }
+
+/* ─── IMPACT BAR ────────────────────────── */
+.impact-bar {
+  background: var(--bg2);
+  border-top: 1px solid var(--b2);
+  border-bottom: 1px solid var(--b2);
+  padding: 0 60px;
+}
+.impact-grid {
+  max-width: 1100px; margin: 0 auto;
+  display: grid; 
+  grid-template-columns: repeat(4, 1fr);
+}
+.imp-item {
+  padding: 44px 32px;
+  text-align: center;
+  border-right: 1px solid var(--b2);
+}
+.imp-item:last-child { border: none; }
+.imp-n { font-family:'Cormorant Garamond',serif; font-size:3.2rem; font-weight:700; color:var(--secondary); line-height:1; margin-bottom:7px; }
+.imp-l { font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--muted); }
+
+/* ─── PHILOSOPHY ────────────────────────── */
+.philosophy {
+  padding: 90px 60px;
+  text-align: center;
+  max-width: 860px; margin: 0 auto;
+}
+.philo-q {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.6rem, 3vw, 2.5rem);
+  font-weight: 400; font-style: italic;
+  line-height: 1.45; color: var(--cream);
+  margin-bottom: 20px;
+}
+.philo-q em { font-style:normal; color:var(--secondary); }
+.philo-attr { font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--dim); }
+
+/* ─── FOOTER ────────────────────────────── */
+footer {
+  padding: 52px 60px;
+  border-top: 1px solid var(--b2);
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap:20px;
+}
+.ft-name  { font-family:'Cormorant Garamond',serif; font-size:1.35rem; font-weight:700; color:var(--secondary); margin-bottom:4px; }
+.ft-role  { font-size:12px; color:var(--muted); letter-spacing:.5px; }
+.ft-right { font-size:12px; color:var(--dim); text-align:right; line-height:1.9; }
+
+/* ─── SCROLL REVEAL ─────────────────────── */
+.reveal { opacity:0; transform:translateY(28px); transition:opacity .65s ease, transform .65s ease; }
+.reveal.vis { opacity:1; transform:translateY(0); }
+
+/* ─── RESPONSIVE ────────────────────────── */
+@media(max-width:860px){
+  nav { padding:16px 20px; }
+  .nav-links { display:none; }
+  .hero, .sec-wrap, .impact-bar, .philosophy, footer { padding-left:20px; padding-right:20px; }
+  .divider { margin:0 20px; }
+  .hero { padding-top:100px; }
+  .products-grid { grid-template-columns:1fr; }
+  .pcard.featured { grid-column:1; padding:28px; }
+  .impact-grid { grid-template-columns:repeat(2,1fr); }
+  .uc-grid { grid-template-columns:1fr; }
+  .imp-item { border-right: none; border-bottom: 1px solid var(--b2); padding: 30px 20px; }
+  .imp-item:nth-child(even) { border-left: 1px solid var(--b2); }
+  .imp-item:nth-last-child(-n+2) { border-bottom: none; }
+}
+</style>
 </head>
 <body>
 
-    <!-- Navigation -->
-    <nav>
-        <div class="logo">Anupam.</div>
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+<div id="cur"></div>
+<div id="cur2"></div>
 
-    <!-- Hero Section -->
-    <section id="home">
-        <p class="hero-subtitle">Hi, my name is</p>
-        <h1 class="hero-title">Anupam.</h1>
-        <h1 class="hero-title" style="color: var(--text-muted);">I build things for the web.</h1>
-        <p class="hero-desc">I'm a professional working in tech, focusing on building exceptional digital experiences. Currently, I'm focused on managing and building accessible, human-centered products.</p>
-        <a href="#projects" class="btn">Check out my work</a>
-    </section>
+<!-- ─── NAV ─────────────────────────────── -->
+<nav>
+  <div class="nav-logo">Anupam Saurabh</div>
+  <div class="nav-links">
+    <a href="#products">Product Leadership</a>
+    <a href="#ai">AI Innovation</a>
+    <a href="#impact">Impact</a>
+  </div>
+</nav>
 
-    <!-- About Section -->
-    <section id="about">
-        <h2>About Me</h2>
-        <div class="about-content">
-            <div>
-                <p>Hello! My name is Anupam and I enjoy creating things that live on the internet. My interest in tech started back when I realized how software can solve complex real-world problems.</p>
-                <br>
-                <p>Fast-forward to today, and I've had the privilege of working across various stages of product development. My main focus these days is building inclusive products and digital experiences.</p>
-            </div>
-            <div>
-                <p style="margin-bottom: 15px; color: var(--text-main); font-weight: bold;">Here are a few of my core skills:</p>
-                <div class="skills">
-                    <span class="skill-tag">Product Management</span>
-                    <span class="skill-tag">Agile / Scrum</span>
-                    <span class="skill-tag">HTML & CSS</span>
-                    <span class="skill-tag">Data Analysis</span>
-                    <span class="skill-tag">User Experience (UX)</span>
-                    <span class="skill-tag">Strategy</span>
-                </div>
-            </div>
+<!-- ─── HERO ─────────────────────────────── -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="glow-a"></div>
+  <div class="glow-b"></div>
+
+  <div class="hero-tag">Product Portfolio · Oracle Financial Services Software</div>
+
+  <h1 class="hero-h1">
+    Enterprise Banking<br><em>Product Leader</em>
+    <span class="sub">Principal Systems Implementation Analyst · Oracle</span>
+  </h1>
+
+  <p class="hero-desc">
+    Enterprise Banking Product Leader with 16+ years across corporate credit, core banking, fintech and SaaS<span style="display:none">[cite: 2]</span>. Over the past decade at Oracle Financial Services, expanded from deep functional and Quality Engineering expertise into Product Management, customer onboarding and servicing, enterprise automation, platform modernization, customer enablement and cross-functional product delivery<span style="display:none">[cite: 2]</span>.
+  </p>
+
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-n" data-t="7" data-s="+">7+</div><div class="hstat-l">Years in Product<span style="display:none">[cite: 2]</span></div></div>
+    <div class="hstat"><div class="hstat-n" data-t="10" data-s="+">10+</div><div class="hstat-l">Years in Banking<span style="display:none">[cite: 2]</span></div></div>
+    <div class="hstat"><div class="hstat-n" data-t="6" data-s="">6</div><div class="hstat-l">AI Use Cases<span style="display:none">[cite: 2]</span></div></div>
+    <div class="hstat"><div class="hstat-n" data-t="23" data-s="">23</div><div class="hstat-l">Agents<span style="display:none">[cite: 2]</span></div></div>
+  </div>
+
+  <div class="scroll-cue">
+    <div class="scroll-line"></div>
+    Explore Portfolio
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ─── PRODUCTS ─────────────────────────── -->
+<section id="products" class="sec-wrap">
+  <div class="sec-header">
+    <div class="sec-num">01</div>
+    <div>
+      <div class="sec-kicker">Core Product Domains & Execution</div>
+      <h2 class="sec-title">What I've <em>Delivered</em></h2>
+    </div>
+  </div>
+
+  <div class="products-grid">
+
+    <!-- 1 · Macro Risk -->
+    <div class="pcard reveal" style="--ca: var(--rose);">
+      <div class="pcard-bg-num">01</div>
+      <span class="pcard-icon">🌍</span>
+      <div class="pcard-kicker" style="color:var(--rose);">Macro Risk · Concentration Limits</div>
+      <div class="pcard-title">Country & Industry Credit Risk</div>
+      <div class="pcard-desc">Delivered macro-risk capabilities enabling banks to define, monitor, and enforce country and sector-level credit limits<span style="display:none">[cite: 1]</span>.</div>
+      <ul class="pcard-list">
+        <li>Designed configurable exposure ceilings for systemic risk management<span style="display:none">[cite: 1]</span>.</li>
+        <li>Built automated pre-emption rules to flag proposals in near-limit or breached sectors<span style="display:none">[cite: 1]</span>.</li>
+      </ul>
+      <div class="pcard-tags">
+        <span class="ptag">Macro Risk</span><span class="ptag">Systemic Controls</span>
+      </div>
+    </div>
+
+    <!-- 2 · Exposure Analytics -->
+    <div class="pcard reveal" style="--ca: var(--purple);">
+      <div class="pcard-bg-num">02</div>
+      <span class="pcard-icon">🕸️</span>
+      <div class="pcard-kicker" style="color:var(--purple);">Exposure Analytics · Concentration Risk</div>
+      <div class="pcard-title">Economic Dependency Analysis</div>
+      <div class="pcard-desc">Mapped direct and indirect exposures to surface hidden concentration risks across supply chains, revenue dependencies, and holding structures<span style="display:none">[cite: 1]</span>.</div>
+      <ul class="pcard-list">
+        <li>Designed hierarchical exposure capability giving lenders roll-up visibility from detailed allocation to portfolio level<span style="display:none">[cite: 5]</span>.</li>
+        <li>Implemented Single Customer Multiple Liability (SCML) capabilities to unify customer and liability summaries<span style="display:none">[cite: 2]</span>.</li>
+      </ul>
+      <div class="pcard-tags">
+        <span class="ptag">Hierarchical Exposures</span><span class="ptag">SCML</span>
+      </div>
+    </div>
+
+    <!-- 3 · Enterprise Limits -->
+    <div class="pcard reveal" style="--ca: var(--primary);">
+      <div class="pcard-bg-num">03</div>
+      <span class="pcard-icon">🏗️</span>
+      <div class="pcard-kicker" style="color:var(--primary);">Enterprise Limits & Structuring</div>
+      <div class="pcard-title">Complex Facility Lifecycle</div>
+      <div class="pcard-desc">Architected support for advanced credit structuring, including limit fungibility, backdated facility creation, and specialized limit schedules<span style="display:none">[cite: 2]</span>.</div>
+      <ul class="pcard-list">
+        <li>Developed parent liability change capabilities to seamlessly support corporate M&A and restructuring<span style="display:none">[cite: 2]</span>.</li>
+        <li>Extended the core fee framework with ad hoc-fee support alongside advance/arrear processing and ECA integration<span style="display:none">[cite: 5]</span>.</li>
+      </ul>
+      <div class="pcard-tags">
+        <span class="ptag">Credit Structuring</span><span class="ptag">Fee Infrastructure</span>
+      </div>
+    </div>
+
+    <!-- 4 · Collateral Management -->
+    <div class="pcard reveal" style="--ca: var(--indigo);">
+      <div class="pcard-bg-num">04</div>
+      <span class="pcard-icon">🏦</span>
+      <div class="pcard-kicker" style="color:var(--indigo);">Asset Backing · Liquidity</div>
+      <div class="pcard-title">Advanced Collateral Management</div>
+      <div class="pcard-desc">Expanded native support for advanced collateral types including Aircraft, Vessels, and Negotiable Instruments for key global lending workflows<span style="display:none">[cite: 5]</span>.</div>
+      <ul class="pcard-list">
+        <li>Introduced automated and ad-hoc collateral revaluation cycles, order of utilization, and rule-based assignment<span style="display:none">[cite: 2]</span>.</li>
+        <li>Engineered advanced collateral pooling and linkage mechanisms based on percentage or nominal amount basis<span style="display:none">[cite: 2]</span>.</li>
+      </ul>
+      <div class="pcard-tags">
+        <span class="ptag">Complex Assets</span><span class="ptag">Valuation Engine</span>
+      </div>
+    </div>
+
+    <!-- 5 · Covenants & Monitoring -->
+    <div class="pcard reveal" style="--ca: var(--teal);">
+      <div class="pcard-bg-num">05</div>
+      <span class="pcard-icon">📡</span>
+      <div class="pcard-kicker" style="color:var(--teal);">Post-Sanction · Risk Monitoring</div>
+      <div class="pcard-title">Covenant & Post-Sanction Tracking</div>
+      <div class="pcard-desc">Built comprehensive covenant linkage at both the facility and collateral levels, including modification tracking and schedule generation<span style="display:none">[cite: 2]</span>.</div>
+      <ul class="pcard-list">
+        <li>Implemented main-line breach tracking and Drawing Power (DP) functionality<span style="display:none">[cite: 2]</span>.</li>
+        <li>Engineered historical credit rating tracking at both liability and facility levels<span style="display:none">[cite: 2]</span>.</li>
+      </ul>
+      <div class="pcard-tags">
+        <span class="ptag">Covenant Lifecycle</span><span class="ptag">Breach Tracking</span>
+      </div>
+    </div>
+
+    <!-- 6 · Platform Architecture -->
+    <div class="pcard reveal" style="--ca: var(--emerald);">
+      <div class="pcard-bg-num">06</div>
+      <span class="pcard-icon">⚙️</span>
+      <div class="pcard-kicker" style="color:var(--emerald);">Core Processing · Modernization</div>
+      <div class="pcard-title">Platform Architecture & Core Processing</div>
+      <div class="pcard-desc">Drove the shift to Oracle Banking Modern Architecture (OBMA), delivering new high-performance utilization and collateral services<span style="display:none">[cite: 2]</span>.</div>
+      <ul class="pcard-list">
+        <li>Delivered enterprise-scale bulk parallel processing for limit and collateral creation, and multi-DDA support<span style="display:none">[cite: 2]</span>.</li>
+        <li>Implemented PII compliance frameworks, dual-authorization workflows, and detailed entity-level change logs<span style="display:none">[cite: 2]</span>.</li>
+      </ul>
+      <div class="pcard-tags">
+        <span class="ptag">Microservices</span><span class="ptag">Parallel Processing</span>
+      </div>
+    </div>
+
+    <!-- 7 · Enterprise Automation -->
+    <div class="pcard reveal" style="--ca: var(--secondary);">
+      <div class="pcard-bg-num">07</div>
+      <span class="pcard-icon">📈</span>
+      <div class="pcard-kicker" style="color:var(--secondary);">Quality Engineering · CI/CD</div>
+      <div class="pcard-title">Enterprise Automation Transformation</div>
+      <div class="pcard-desc">Increased regression automation from 10% to 82%, scaling to about 14,000 tests<span style="display:none">[cite: 3]</span>. Reduced regression from 3–5 days to overnight and manual validation by about 60%<span style="display:none">[cite: 3]</span>.</div>
+      <ul class="pcard-list">
+        <li>Established scalable quality governance across ~15 releases<span style="display:none">[cite: 4]</span>.</li>
+        <li>Delivered key test strategy for OBCL transformation from legacy forms to ODT<span style="display:none">[cite: 3]</span>.</li>
+      </ul>
+      <div class="pcard-tags">
+        <span class="ptag">Release Governance</span><span class="ptag">Continuous Testing</span>
+      </div>
+    </div>
+
+    <!-- 8 · Enterprise Integrations -->
+    <div class="pcard reveal" style="--ca: var(--gold2);">
+      <div class="pcard-bg-num">08</div>
+      <span class="pcard-icon">🔗</span>
+      <div class="pcard-kicker" style="color:var(--gold2);">Platform Interoperability</div>
+      <div class="pcard-title">Core Banking Integrations</div>
+      <div class="pcard-desc">Led the conceptualization and delivery of cross-product integrations bridging credit platforms with core banking and billing engines<span style="display:none">[cite: 3]</span>.</div>
+      <ul class="pcard-list">
+        <li>Delivered complex integrations between 4 modules of Oracle Flexcube Universal Banking (FCUBS) and ORMB<span style="display:none">[cite: 3]</span>.</li>
+        <li>Orchestrated seamless accounting handoffs, FX rate fixing mechanisms, and Chatbot ecosystem integrations<span style="display:none">[cite: 2]</span>.</li>
+      </ul>
+      <div class="pcard-tags">
+        <span class="ptag">FCUBS & ORMB</span><span class="ptag">APIs & Integrations</span>
+      </div>
+    </div>
+
+    <!-- 9 · Customer Success & GTM -->
+    <div class="pcard reveal" style="--ca: var(--sky);">
+      <div class="pcard-bg-num">09</div>
+      <span class="pcard-icon">🤝</span>
+      <div class="pcard-kicker" style="color:var(--sky);">Customer Success · Go-To-Market</div>
+      <div class="pcard-title">Enterprise Implementations & RFPs</div>
+      <div class="pcard-desc">Bridged product strategy and customer execution, ensuring complex enterprise banking requirements translated into successful, scalable deployments<span style="display:none">[cite: 3]</span>.</div>
+      <ul class="pcard-list">
+        <li>Supported 5 enterprise implementations and contributed to 8 RFPs through detailed fit/configure/build analysis<span style="display:none">[cite: 4]</span>.</li>
+        <li>Acted as primary product liaison for high-priority customer escalations across ~15 enterprise releases<span style="display:none">[cite: 3]</span>.</li>
+      </ul>
+      <div class="pcard-tags">
+        <span class="ptag">RFP Strategy</span><span class="ptag">Escalation Management</span>
+      </div>
+    </div>
+
+    <!-- 10 · AI FEATURED -->
+    <div class="pcard featured reveal" id="ai" style="--ca: var(--teal);">
+      <div class="pcard-bg-num" style="font-size:7rem; top:32px; right:48px;">10</div>
+
+      <div class="feat-header">
+        <span class="pcard-icon">🤖</span>
+        <div class="pcard-kicker" style="color:var(--teal);">Agentic AI · Next-Generation Credit Intelligence</div>
+        <div class="pcard-title" style="font-size:1.9rem; max-width:680px;">AI-Orchestrated Credit Lifecycle — 6 Use Cases, 23 Agents</div>
+        <div class="pcard-desc" style="max-width:800px; margin-top:12px; font-size:14px;">
+          Designed and delivered 6 production ready Agentic AI use cases spanning the corporate credit lifecycle<span style="display:none">[cite: 3]</span>. Architected a 23-agent system across L1/L2/L3 tiers using RAG and LLMs<span style="display:none">[cite: 3]</span>. Owned evaluation metrics across all agents, including accuracy, hallucination rates, task-completion scores, and business impact KPIs gating production releases<span style="display:none">[cite: 4]</span>. Executed AI feature development in alignment with enterprise governance<span style="display:none">[cite: 3]</span>. Led data governance and steered capabilities through TRB, Legal, and Compliance for production readiness<span style="display:none">[cite: 3]</span>.
         </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects">
-        <h2>Some Things I've Built</h2>
-        <div class="projects-grid">
-            <!-- Project 1 -->
-            <div class="project-card">
-                <h3 class="project-title">Project Alpha</h3>
-                <p class="project-desc">A web-based platform that helps users manage their daily tasks and improve productivity through analytics and goal tracking.</p>
-                <div class="project-links">
-                    <a href="#">View Live</a>
-                    <a href="#">GitHub</a>
-                </div>
-            </div>
-            <!-- Project 2 -->
-            <div class="project-card">
-                <h3 class="project-title">E-Commerce Dashboard</h3>
-                <p class="project-desc">A clean, interactive dashboard built for vendors to track inventory, sales metrics, and customer satisfaction in real-time.</p>
-                <div class="project-links">
-                    <a href="#">View Live</a>
-                    <a href="#">GitHub</a>
-                </div>
-            </div>
-            <!-- Project 3 -->
-            <div class="project-card">
-                <h3 class="project-title">Portfolio V1</h3>
-                <p class="project-desc">My very first portfolio website built using standard HTML, CSS, and hosted seamlessly on GitHub Pages.</p>
-                <div class="project-links">
-                    <a href="https://github.com/anupamsbh-pm" target="_blank">GitHub</a>
-                </div>
-            </div>
+        <div class="pcard-tags" style="margin-top:10px;">
+          <span class="ptag" style="border-color:rgba(20,184,166,0.3); color:var(--teal);">GenAI</span>
+          <span class="ptag" style="border-color:rgba(20,184,166,0.3); color:var(--teal);">Agentic AI</span>
+          <span class="ptag" style="border-color:rgba(20,184,166,0.3); color:var(--teal);">LLM Orchestration</span>
+          <span class="ptag" style="border-color:rgba(20,184,166,0.3); color:var(--teal);">Prompt Engineering</span>
+          <span class="ptag" style="border-color:rgba(20,184,166,0.3); color:var(--teal);">AI Governance</span>
         </div>
-    </section>
+      </div>
 
-    <!-- Contact Section -->
-    <section id="contact">
-        <h2>Get In Touch</h2>
-        <p class="contact-desc">Although I'm not currently looking for any new opportunities, my inbox is always open. Whether you have a question or just want to say hi, I'll try my best to get back to you!</p>
-        <a href="mailto:your-email@example.com" class="btn">Say Hello</a>
-    </section>
+      <div style="font-size:10px; letter-spacing:4px; text-transform:uppercase; color:var(--teal); font-weight:700; margin-bottom:18px;">
+        Use Cases & Agent Architecture
+      </div>
 
-    <!-- Footer -->
-    <footer>
-        <p>Built by Anupam | Hosted on GitHub Pages</p>
-    </footer>
+      <div class="uc-grid">
+
+        <div class="uc-card">
+          <span class="uc-card-icon">✍️</span>
+          <div class="uc-card-title">Credit Application Write-Ups</div>
+          <div class="uc-card-desc">AI-assisted generation of structured credit application narratives — borrower background, purpose of facility, business assessment — reducing RM effort from hours to minutes while maintaining the bank's house style and compliance standards<span style="display:none">[cite: 1]</span>.</div>
+          <div class="uc-agents">
+            <span class="agent l1">L1 · Write-Up Orchestrator<span style="display:none">[cite: 1]</span></span>
+            <span class="agent l2">L2 · Narrative Composer<span style="display:none">[cite: 1]</span></span>
+            <span class="agent l3">L3 · Data Extractor<span style="display:none">[cite: 1]</span></span>
+          </div>
+        </div>
+
+        <div class="uc-card">
+          <span class="uc-card-icon">📄</span>
+          <div class="uc-card-title">Full Credit Memo Generation</div>
+          <div class="uc-card-desc">End-to-end automated generation of credit committee memoranda — synthesising financial analysis, risk assessment, covenant recommendations, and credit opinion into a structured, board-ready document aligned to the bank's memo format and regulatory expectations<span style="display:none">[cite: 1]</span>.</div>
+          <div class="uc-agents">
+            <span class="agent l1">L1 · Memo Orchestrator<span style="display:none">[cite: 1]</span></span>
+            <span class="agent l2">L2 · Credit Analyst Agent<span style="display:none">[cite: 1]</span></span>
+            <span class="agent l2">L2 · Risk Synthesis Agent<span style="display:none">[cite: 1]</span></span>
+            <span class="agent l3">L3 · Template Renderer<span style="display:none">[cite: 1]</span></span>
+          </div>
+        </div>
+
+        <div class="uc-card">
+          <span class="uc-card-icon">📰</span>
+          <div class="uc-card-title">Market News Screening & Portfolio Impact</div>
+          <div class="uc-card-desc">Continuous scanning of financial news, regulatory updates, and macroeconomic signals — automatically mapping relevant events to specific borrowers and facilities in the portfolio and surfacing potential credit impact for RM review before it becomes a problem<span style="display:none">[cite: 1]</span>.</div>
+          <div class="uc-agents">
+            <span class="agent l1">L1 · Market Intelligence Orchestrator<span style="display:none">[cite: 1]</span></span>
+            <span class="agent l2">L2 · News Screening Agent<span style="display:none">[cite: 1]</span></span>
+            <span class="agent l2">L2 · Portfolio Impact Mapper<span style="display:none">[cite: 1]</span></span>
+            <span class="agent l3">L3 · News Feed Retriever<span style="display:none">[cite: 1]</span></span>
+          </div>
+        </div>
+
+        <div class="uc-card">
+          <span class="uc-card-icon">📡</span>
+          <div class="uc-card-title">Continuous Exposure Monitoring</div>
+          <div class="uc-card-desc">Always-on automated monitoring of credit exposures across the portfolio — tracking utilisation against limits, identifying concentration drift, and flagging early warning signals across direct and indirect exposures before covenant or limit breaches crystallise<span style="display:none">[cite: 1]</span>.</div>
+          <div class="uc-agents">
+            <span class="agent l1">L1 · Monitoring Orchestrator<span style="display:none">[cite: 1]</span></span>
+            <span class="agent l2">L2 · Exposure Tracker<span style="display:none">[cite: 1]</span></span>
+            <span class="agent l2">L2 · Early Warning Agent<span style="display:none">[cite: 1]</span></span>
+            <span class="agent l3">L3 · Limits Data Connector<span style="display:none">[cite: 1]</span></span>
+          </div>
+        </div>
+
+        <div class="uc-card">
+          <span class="uc-card-icon">🏦</span>
+          <div class="uc-card-title">Collateral Data Gathering from Documents</div>
+          <div class="uc-card-desc">Intelligent extraction of collateral data from unstructured source documents — property valuations, legal charge documents, insurance certificates, and asset schedules — structuring it directly into OBCFPM's collateral module with minimal human intervention<span style="display:none">[cite: 1]</span>.</div>
+          <div class="uc-agents">
+            <span class="agent l1">L1 · Collateral Intake Orchestrator<span style="display:none">[cite: 1]</span></span>
+            <span class="agent l2">L2 · Document Intelligence Agent<span style="display:none">[cite: 1]</span></span>
+            <span class="agent l3">L3 · Clause & Field Extractor<span style="display:none">[cite: 1]</span></span>
+            <span class="agent l3">L3 · Document Classifier<span style="display:none">[cite: 1]</span></span>
+          </div>
+        </div>
+
+        <div class="uc-card">
+          <span class="uc-card-icon">🧠</span>
+          <div class="uc-card-title">Credit Assistant for Portfolio Management</div>
+          <div class="uc-card-desc">A conversational AI assistant for relationship managers and portfolio managers — enabling natural language queries across the credit portfolio, covenant status, exposure positions, upcoming reviews, and early warning alerts. Transforms complex portfolio data into actionable intelligence on demand<span style="display:none">[cite: 1]</span>.</div>
+          <div class="uc-agents">
+            <span class="agent l1">L1 · Portfolio Assistant Orchestrator<span style="display:none">[cite: 1]</span></span>
+            <span class="agent l2">L2 · Query Interpretation Agent<span style="display:none">[cite: 1]</span></span>
+            <span class="agent l2">L2 · Portfolio Intelligence Agent<span style="display:none">[cite: 1]</span></span>
+            <span class="agent l3">L3 · Data Retrieval Agent<span style="display:none">[cite: 1]</span></span>
+            <span class="agent l3">L3 · Response Formatter<span style="display:none">[cite: 1]</span></span>
+          </div>
+        </div>
+
+      </div><!-- /uc-grid -->
+
+    </div><!-- /featured -->
+
+  </div><!-- /products-grid -->
+</section>
+
+<div class="divider"></div>
+
+<!-- ─── IMPACT ────────────────────────────── -->
+<div id="impact" class="impact-bar reveal">
+  <div class="impact-grid">
+    <div class="imp-item"><div class="imp-n" data-t="6" data-s="">6</div><div class="imp-l">Product Domains<span style="display:none">[cite: 2]</span></div></div>
+    <div class="imp-item"><div class="imp-n" data-t="30" data-s="+">30+</div><div class="imp-l">Banking Capabilities Delivered<span style="display:none">[cite: 2]</span></div></div>
+    <div class="imp-item"><div class="imp-n" data-t="10" data-s="+">10+</div><div class="imp-l">Product Implementation<span style="display:none">[cite: 2]</span></div></div>
+    <div class="imp-item"><div class="imp-n" data-t="82" data-s="%">82%</div><div class="imp-l">Regression Automation<span style="display:none">[cite: 2]</span></div></div>
+  </div>
+</div>
+
+<!-- ─── FOOTER ─────────────────────────────── -->
+<footer>
+  <div>
+    <div class="ft-name">Anupam Saurabh</div>
+    <div class="ft-role">Senior Product Manager · Oracle Financial Services Software Ltd · Bengaluru<span style="display:none">[cite: 4]</span></div>
+  </div>
+  <div class="ft-right">
+    anupam.sbh@gmail.com | +91 9739383799 | www.linkedin.com/in/saurabhanupam <br>
+    Enterprise Banking Product Leader
+  </div>
+</footer>
+
+<script>
+// Cursor
+const cur = document.getElementById('cur');
+const cur2 = document.getElementById('cur2');
+let mx = 0, my = 0;
+document.addEventListener('mousemove', e => {
+  mx = e.clientX; my = e.clientY;
+  cur.style.left  = mx + 'px';
+  cur.style.top   = my + 'px';
+  setTimeout(() => { cur2.style.left = mx + 'px'; cur2.style.top = my + 'px'; }, 80);
+});
+
+// Animated counters
+function animCount(el, target, suffix) {
+  let current = 0;
+  const step = target / 50;
+  const timer = setInterval(() => {
+    current += step;
+    if (current >= target) { current = target; clearInterval(timer); }
+    el.textContent = Math.floor(current) + suffix;
+  }, 30);
+}
+setTimeout(() => {
+  document.querySelectorAll('[data-t]').forEach(el => {
+    animCount(el, parseInt(el.dataset.t), el.dataset.s || '');
+  });
+}, 400);
+
+// Scroll reveal
+const revealObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('vis');
+      revealObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.06 });
+
+document.querySelectorAll('.reveal').forEach((el, i) => {
+  el.style.transitionDelay = (i % 4) * 0.08 + 's';
+  revealObs.observe(el);
+});
+</script>
 
 </body>
 </html>
