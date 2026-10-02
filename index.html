@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anupam | Portfolio</title>
+    <style>
+        /* CSS Variables for Easy Theming */
+        :root {
+            --bg-color: #0f172a; /* Slate Dark */
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-color: #38bdf8; /* Modern Light Blue */
+            --card-bg: #1e293b;
+        }
+
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Navigation Bar */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+        .nav-links li a {
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+        .nav-links li a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Sections General */
+        section {
+            padding: 100px 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: var(--text-main);
+            border-bottom: 3px solid var(--accent-color);
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        /* Hero Section */
+        #home {
+            align-items: flex-start;
+        }
+        .hero-subtitle {
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+        .hero-title {
+            font-size: 4.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+        .hero-desc {
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 40px;
+        }
+        .btn {
+            padding: 15px 30px;
+            background-color: transparent;
+            border: 2px solid var(--accent-color);
+            color: var(--accent-color);
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            color: var(--text-muted);
+        }
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .skill-tag {
+            background-color: var(--card-bg);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--text-main);
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .project-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 30px;
+            transition: transform 0.3s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+        .project-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--text-main);
+        }
+        .project-desc {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+        .project-links a {
+            color: var(--accent-color);
+            margin-right: 15px;
+            font-weight: bold;
+        }
+
+        /* Contact Section */
+        #contact {
+            align-items: center;
+            text-align: center;
+            min-height: 60vh;
+        }
+        .contact-desc {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin-bottom: 40px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background-color: var(--card-bg);
+            color: var(--text-muted);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title { font-size: 3rem; }
+            .about-content { grid-template-columns: 1fr; }
+            .nav-links { display: none; } /* Simplified for mobile */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">Anupam.</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home">
+        <p class="hero-subtitle">Hi, my name is</p>
+        <h1 class="hero-title">Anupam.</h1>
+        <h1 class="hero-title" style="color: var(--text-muted);">I build things for the web.</h1>
+        <p class="hero-desc">I'm a professional working in tech, focusing on building exceptional digital experiences. Currently, I'm focused on managing and building accessible, human-centered products.</p>
+        <a href="#projects" class="btn">Check out my work</a>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2>About Me</h2>
+        <div class="about-content">
+            <div>
+                <p>Hello! My name is Anupam and I enjoy creating things that live on the internet. My interest in tech started back when I realized how software can solve complex real-world problems.</p>
+                <br>
+                <p>Fast-forward to today, and I've had the privilege of working across various stages of product development. My main focus these days is building inclusive products and digital experiences.</p>
+            </div>
+            <div>
+                <p style="margin-bottom: 15px; color: var(--text-main); font-weight: bold;">Here are a few of my core skills:</p>
+                <div class="skills">
+                    <span class="skill-tag">Product Management</span>
+                    <span class="skill-tag">Agile / Scrum</span>
+                    <span class="skill-tag">HTML & CSS</span>
+                    <span class="skill-tag">Data Analysis</span>
+                    <span class="skill-tag">User Experience (UX)</span>
+                    <span class="skill-tag">Strategy</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2>Some Things I've Built</h2>
+        <div class="projects-grid">
+            <!-- Project 1 -->
+            <div class="project-card">
+                <h3 class="project-title">Project Alpha</h3>
+                <p class="project-desc">A web-based platform that helps users manage their daily tasks and improve productivity through analytics and goal tracking.</p>
+                <div class="project-links">
+                    <a href="#">View Live</a>
+                    <a href="#">GitHub</a>
+                </div>
+            </div>
+            <!-- Project 2 -->
+            <div class="project-card">
+                <h3 class="project-title">E-Commerce Dashboard</h3>
+                <p class="project-desc">A clean, interactive dashboard built for vendors to track inventory, sales metrics, and customer satisfaction in real-time.</p>
+                <div class="project-links">
+                    <a href="#">View Live</a>
+                    <a href="#">GitHub</a>
+                </div>
+            </div>
+            <!-- Project 3 -->
+            <div class="project-card">
+                <h3 class="project-title">Portfolio V1</h3>
+                <p class="project-desc">My very first portfolio website built using standard HTML, CSS, and hosted seamlessly on GitHub Pages.</p>
+                <div class="project-links">
+                    <a href="https://github.com/anupamsbh-pm" target="_blank">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Get In Touch</h2>
+        <p class="contact-desc">Although I'm not currently looking for any new opportunities, my inbox is always open. Whether you have a question or just want to say hi, I'll try my best to get back to you!</p>
+        <a href="mailto:your-email@example.com" class="btn">Say Hello</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Built by Anupam | Hosted on GitHub Pages</p>
+    </footer>
+
+</body>
+</html>
